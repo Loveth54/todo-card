@@ -3,47 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Todo Card</title>
+  <title>Advanced Todo Card</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <article data-testid="test-todo-card">
-
+  <div data-testid="test-todo-priority-indicator" class="priority high"></div>
   <h2 data-testid="test-todo-title">Learn JavaScript</h2>
+  <button 
+    data-testid="test-todo-expand-toggle"
+    aria-expanded="false"
+    aria-controls="desc">
+  </button>
+  <div id="desc" data-testid="test-todo-collapsible-section">
+    <p data-testid="test-todo-description">
+    
+    </p>
+  </div>
 
-  <p data-testid="test-todo-description">
-    Practice DOM manipulation and build a mini app.
-  </p>
-
+  
   <strong data-testid="test-todo-priority">High</strong>
 
-  <time data-testid="test-todo-due-date">
-    Due Mar 1, 2026 18:00
-  </time>
+  
+  <time data-testid="test-todo-due-date"></time>
 
-  <span data-testid="test-todo-time-remaining"></span>
+  <span data-testid="test-todo-time-remaining" aria-live="polite"></span>
+  <span data-testid="test-todo-overdue-indicator"></span>
 
   <strong data-testid="test-todo-status">Pending</strong>
 
+  <select data-testid="test-todo-status-control">
+    <option>Pending</option>
+    <option>In Progress</option>
+    <option>Done</option>
+  </select>
+
   <label>
     <input type="checkbox" data-testid="test-todo-complete-toggle">
-    Mark Complete
+    Complete
   </label>
 
-  <ul data-testid="test-todo-tags" role="list">
-    <li data-testid="test-todo-tag-work">Work</li>
-    <li data-testid="test-todo-tag-urgent">Urgent</li>
-  </ul>
-
   <button data-testid="test-todo-edit-button">Edit</button>
-
   <button data-testid="test-todo-delete-button">Delete</button>
+
+  <div data-testid="test-todo-edit-form" class="hidden">
+
+    <label for="titleInput">Title</label>
+    <input id="titleInput" data-testid="test-todo-edit-title-input">
+
+    <label for="descInput">Description</label>
+    <textarea id="descInput" data-testid="test-todo-edit-description-input"></textarea>
+
+    <label for="prioritySelect">Priority</label>
+    <select id="prioritySelect" data-testid="test-todo-edit-priority-select">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+
+    <label for="dueInput">Due Date</label>
+    <input type="datetime-local" id="dueInput" data-testid="test-todo-edit-due-date-input">
+
+    <button data-testid="test-todo-save-button">Save</button>
+    <button data-testid="test-todo-cancel-button">Cancel</button>
+
+  </div>
 
 </article>
 
 <script src="script.js"></script>
-
 </body>
 </html>
